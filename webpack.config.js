@@ -1,4 +1,6 @@
 var path = require('path');
+var debug = process.env.NODE_ENV != "production";
+var webpack = require('webpack');
 
 module.exports = {
   entry: './app/index.js',
@@ -16,5 +18,26 @@ module.exports = {
                  }
              }
          ]
-     },
+  },
+  plugins: debug ? [
+    new webpack.SourceMapDevToolPlugin({
+      filename: 'bundle.js.map',
+    })] :
+  [
+    new webpack.LoaderOptionsPlugin({
+        minimize: true,
+        debug: false
+      }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: false,
+      beautify: false,
+        mangle: {
+          screw_ie8: true,
+          keep_fnames: true
+        },
+        compress: {
+          screw_ie8: true
+        },
+        comments: false
+    })]
 };
