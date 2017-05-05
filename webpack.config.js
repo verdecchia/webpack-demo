@@ -1,6 +1,7 @@
-var path = require('path');
-var debug = process.env.NODE_ENV != "production";
-var webpack = require('webpack');
+const path = require('path');
+const debug = process.env.NODE_ENV != "production";
+const  webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './app/index.js',
@@ -24,6 +25,7 @@ module.exports = {
       filename: 'bundle.js.map',
     })] :
   [
+    new CleanWebpackPlugin(['dist']),
     new webpack.LoaderOptionsPlugin({
         minimize: true,
         debug: false
