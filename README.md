@@ -16,3 +16,4 @@ https://webpack.js.org/guides/get-starte]
 Extra (small examples)
 
 * babel 
+* editorconfig
