@@ -17,3 +17,4 @@ Extra (small examples)
 
 * babel 
 * editorconfig
+* development/production environment
