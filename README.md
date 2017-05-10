@@ -20,3 +20,4 @@ Extra (small examples)
 * babel 
 * editorconfig
 * development/production environment
+* watch (webpack-dev-server)
